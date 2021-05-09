@@ -773,31 +773,7 @@ function initMap(){
             $(".amount-text").text(string_money.slice(0,string_money.indexOf("USD")) + $(this).val());
           }
         });
-		// $('#amount').keyup(e=>{
-		// 		let val = ''+$('#amount').val();
-		// 		// if(e.key !== 'Backspace')
-		// 		//  val+=e.key
-		// 		// else 
-		// 		// 	val = val.substring(0,val.length - 1);
-
-		// 	  if(['1','2','3','4','5', '6', '7', '8', '9', '0','Backspace'].indexOf(e.key) === -1)
-		// 	    e.preventDefault();		
-		// 	  else {
-		// 	  // 	if(val == ''){
-		// 			// $('.amount-text').text(''); 
-		// 	  // 		return;
-		// 	  // 	} 
-		// 	  // 	let id = $('#time-cost-picker').attr('value')
-		// 	  // 	idToData(id,'setCost',parseInt(val));
-		//   	// 	val = parseInt(val).toLocaleString(undefined,{ style: 'currency', currency: 'VND'});
-		//   	// 	$('.amount-text').text(val);
-		// 	  	var notification_money=val.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-		// 		 	$('.amount-text').text(notification_money + $('.currency-select').find(":selected").text() );
-		// 	  }
-		// 	 // var notification_money=val.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
-		// 	 // $('.amount-text').text(notification_money);
-
-		// 	});
+		// Test brancg git
 		$('#clear_mark').click(()=>{
 			 if(nearMarks.length)
 			 	nearMarks.forEach(ele=>ele.setMap(null));
