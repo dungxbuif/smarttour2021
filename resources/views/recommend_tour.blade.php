@@ -16,7 +16,8 @@
 @stop
 @section('content')	
 	<!-- map -->
-	<div id="wrap"> 
+	<div id="wrap">
+		<input id="pac-input" class="controls" type="text" placeholder="Search Box"> 
 		<div id="map"></div>
 		<div id='control-column'>
 			<div id="search-box">
@@ -664,7 +665,14 @@ function initMap(){
 						}),
 				directionsService	= new google.maps.DirectionsService(),
 				geocoder 	= new google.maps.Geocoder(),
-				distanceService = new google.maps.DistanceMatrixService();;
+				distanceService = new google.maps.DistanceMatrixService();
+
+	var searchBox = new google.maps.places.SearchBox(document.getElementById('pac-input'));
+   map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('pac-input'));
+   google.maps.event.addListener(searchBox, 'places_changed', function() {
+     var places = searchBox.getPlaces();
+     geocoderCallBack(places)
+   });
 	
 	setEvent();
 //===========================================
@@ -819,6 +827,7 @@ function initMap(){
 			$("#start-locat").html("<span>Click chuột vào đây để chọn điểm bắt đầu</span>");
 			$("#start-locat").attr('data-start',0);
 			$("#start-locat").attr('data-clsclk',0);
+			$('#pac-input').val('')
 			$('#list-container').empty();
 			$('#time-cost-picker').hide();
 			$('#get-route-pannel').hide();
@@ -844,6 +853,10 @@ function initMap(){
 					value.setMap(null);
 					markerArray.delete(key);
 				});
+			}
+
+			if(Object.entries(newMarkOnClk.size).length){
+				newMarkOnClk.marker.setMap(null);
 			}
 
 			if(Object.entries(startLocat).length){
