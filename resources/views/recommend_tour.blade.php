@@ -667,10 +667,11 @@ function initMap(){
 				geocoder 	= new google.maps.Geocoder(),
 				distanceService = new google.maps.DistanceMatrixService();
 
-	var searchBox = new google.maps.places.SearchBox(document.getElementById('pac-input'));
+	const searchBox = new google.maps.places.SearchBox(document.getElementById('pac-input'));
    map.controls[google.maps.ControlPosition.TOP_CENTER].push(document.getElementById('pac-input'));
    google.maps.event.addListener(searchBox, 'places_changed', function() {
-     var places = searchBox.getPlaces();
+     let places = searchBox.getPlaces();
+     $('#add-waypoints').show();
      geocoderCallBack(places)
    });
 	
@@ -1293,7 +1294,7 @@ function initMap(){
 			marker = 	new google.maps.Marker({
 										map: map,
 										position: Object(locationdata.get(id)).location,
-										label: label,
+										// label: label,
 										icon: icon
 								});
 
@@ -1328,7 +1329,7 @@ function initMap(){
 
 			infowindow.addListener('closeclick',()=>{
 				if(id != startLocat.id){
-					marker.setLabel(label);
+					// marker.setLabel(label);
 				} else {
 					$(`.map-marker-label[value="${id}"]`).show();
 				}

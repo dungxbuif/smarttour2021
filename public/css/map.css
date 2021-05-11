@@ -53,11 +53,9 @@ body {
   font-family: Roboto;
 }
 
-#pac-container {
-  padding-bottom: 12px;
-  margin-right: 12px;
-  top: 0px !important;
-}
+  .pac-container {
+    top: 40px !important;
+  }
 
 .pac-controls {
   display: inline-block;
